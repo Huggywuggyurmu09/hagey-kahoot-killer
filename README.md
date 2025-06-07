@@ -17,7 +17,7 @@ Make sure you have [node.js](https://nodejs.org/) installed (v14+ recommended).
 
 Then go ahead and clone the repo and install the dependencies:
 ```bash
-git clone https://github.com/Huggywuggyurmu09/kahoot-bots.git
+git clone https://github.com/Huggywuggyurmu09/hagey-kahoot-killer.git
 cd kahoot-bots
 npm install
 ```
