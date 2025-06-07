@@ -44,30 +44,28 @@ function delay(ms) {
 }
 
 function setupListeners(client) {
-  client.on("Joined", () => {
-    console.log(`✅ Client ${client.name} joined the Kahoot!`);
-  });
+client.on("Joined", () => {
+  console.log(`✅ Client ${client.name} joined the Kahoot!`);
+});
 
-  const onQuizStart = () => {
-    console.log("🔔 The quiz has started!");
-    client.off("QuizStart", onQuizStart);
-  };
-  client.on("QuizStart", onQuizStart);
+client.on("QuizStart", function quizStartHandler() {
+  console.log("🔔 The quiz has started!");
+  client.off("QuizStart", quizStartHandler);
+});
 
-  const onQuestionStart = question => {
-    console.log("🚀 A new question has started, answering the first answer.");
-    question.answer(Math.floor(Math.random() * 4));
-  };
+client.on("QuestionStart", function questionStartHandler(question) {
+  console.log("🚀 A new question has started, answering..");
+  question.answer(Math.floor(Math.random() * 4));
+});
 
-  const onQuizEnd = () => {
-    console.log("🏆 The quiz has ended.");
-    client.off("QuizEnd", onQuizEnd);
-  };
-  client.on("QuizEnd", onQuizEnd);
+client.on("QuizEnd", function quizEndHandler() {
+  console.log("🏆 The quiz has ended.");
+  client.off("QuizEnd", quizEndHandler);
+});
 
-  client.on("Disconnect", reason => {
-    console.log(`❌ Client ${client.name} left the game: ${reason}`);
-  });
+client.on("Disconnect", reason => {
+  console.log(`❌ Client ${client.name} left the game: ${reason}`);
+});
 }
 
 async function main() {
