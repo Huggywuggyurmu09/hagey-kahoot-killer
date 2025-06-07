@@ -4,7 +4,7 @@ A simple node.js project to create multiple bots that join Kahoot games automati
 ## To-Do List
 - [ ] Bypass 2FA
 - [ ] Bypass username (so u can add swear words in ur username)
-- [ ] Auto-answer questions
+- [x] Auto-answer questions
 
 ## Features
 
